@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int matriz[5][5];
+    int i, j;
+    int valorX;
+    int encontrado = 0;
+    int linhaEncontrada = -1;
+    int colunaEncontrada = -1;
+
+    printf("Digite os valores da matriz 5x5:\n");
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    
+    printf("Digite o valor a ser buscado: ");
+    scanf("%d", &valorX);
+
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (matriz[i][j] == valorX) {
+                encontrado = 1;
+                linhaEncontrada = i;
+                colunaEncontrada = j;
+                break; 
+            }
+        }
+        if (encontrado) {
+            break;
+        }
+    }
+
+    if (encontrado) {
+        printf("O valor %d foi encontrado na matriz.\n", valorX);
+        printf("Localização: linha %d, coluna %d.\n", linhaEncontrada + 1, colunaEncontrada + 1);
+    } else {
+        printf("O valor %d não foi encontrado na matriz.\n", valorX);
+    }
+
+    return 0;
+}
