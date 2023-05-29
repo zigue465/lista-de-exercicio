@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+#define SIZE 4
+
+// Função para encontrar os maiores valores de cada posição das matrizes
+void encontrarMaioresValores(int matriz1[SIZE][SIZE], int matriz2[SIZE][SIZE], int matrizMaior[SIZE][SIZE]) {
+    int i, j;
+
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            if (matriz1[i][j] > matriz2[i][j]) {
+                matrizMaior[i][j] = matriz1[i][j];
+            } else {
+                matrizMaior[i][j] = matriz2[i][j];
+            }
+        }
+    }
+}
+
+int main() {
+    int matriz1[SIZE][SIZE];
+    int matriz2[SIZE][SIZE];
+    int matrizMaior[SIZE][SIZE];
+    int i, j;
+
+    // Ler a primeira matriz
+    printf("Digite os elementos da primeira matriz:\n");
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz1[i][j]);
+        }
+    }
+
+    // Ler a segunda matriz
+    printf("Digite os elementos da segunda matriz:\n");
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz2[i][j]);
+        }
+    }
+
+    // Encontrar os maiores valores de cada posição das matrizes
+    encontrarMaioresValores(matriz1, matriz2, matrizMaior);
+
+    // Escrever a terceira matriz com os maiores valores
+    printf("Matriz com os maiores valores:\n");
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("%d ", matrizMaior[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
