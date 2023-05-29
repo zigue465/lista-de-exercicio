@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+#define SIZE 3
+
+int main() {
+    int matriz[SIZE][SIZE];
+    int i, j;
+    int soma = 0;
+
+    // Ler a matriz
+    printf("Digite os elementos da matriz:\n");
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Calcular a soma dos elementos da diagonal principal
+    for (i = 0; i < SIZE; i++) {
+        soma += matriz[i][i];
+    }
+
+    // Imprimir a soma dos elementos da diagonal principal
+    printf("A soma dos elementos da diagonal principal eh: %d\n", soma);
+
+    return 0;
+}
